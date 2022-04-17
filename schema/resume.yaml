@@ -1,0 +1,92 @@
+version: 1.0.0
+page:
+  size: ""
+  margins:
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+theme:
+  background: ""
+  accent: ""
+personal:
+  name: ""
+  firstName: ""
+  lastName: ""
+  role: ""
+  photo: ""
+  summary: ""
+  contact:
+    phone: ""
+    email: ""
+    website: ""
+  address:
+    street: ""
+    city: ""
+    postalCode: ""
+    country: ""
+  profiles:
+    - platform: ""
+      user: ""
+      website: ""
+work:
+  - name: ""
+    description: ""
+    address: ""
+    website: ""
+    role: ""
+    from: "2022-04-17"
+    until: null
+    summary: ""
+    highlights: []
+education:
+  - institution: ""
+    address: ""
+    website: ""
+    degree: ""
+    field: ""
+    from: "2022-04-17"
+    until: null
+    grade: ""
+    summary: ""
+    highlights: []
+projects:
+  - name: ""
+    description: ""
+    website: ""
+    role: ""
+    from: "2022-04-17"
+    until: null
+    highlights: []
+    keywords: []
+publications:
+  - publication: ""
+    institution: ""
+    author: ""
+    date: "2022-04-17"
+    website: ""
+    description: ""
+awards:
+  - certificate: ""
+    institution: ""
+    date: "2022-04-17"
+    website: ""
+    description: ""
+certificates:
+  - certificate: ""
+    institution: ""
+    date: "2022-04-17"
+    website: ""
+    description: ""
+skillSets:
+  - title: ""
+    skills:
+      - skill: ""
+        level: 0
+languages:
+  - language: ""
+    proficiency: ""
+    level: 0
+interests:
+  - interest: ""
+    keywords: []
