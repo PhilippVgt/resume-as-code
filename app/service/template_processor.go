@@ -66,7 +66,7 @@ func FillTemplate(templatePath string, resume *model.Resume) (*http.ServeMux, er
 	mux.Handle("/res/", http.StripPrefix("/res", templateFiles))
 
 	if localPhoto {
-		photoFiles := http.FileServer(http.Dir(path.Join(localPhotoDir)))
+		photoFiles := http.FileServer(http.Dir(localPhotoDir))
 		mux.Handle("/photo/", http.StripPrefix("/photo", photoFiles))
 	}
 

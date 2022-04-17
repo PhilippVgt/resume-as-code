@@ -34,6 +34,51 @@ The resume schema provides structured representations for the following details:
 
 Refer to `schema/resume.yaml` and `schema/resume.json` for all available attributes.
 
+### Page Setup
+For adjusting the PDF page use:
+```yaml
+page:
+  size: A4          # Page format, A4 and Letter are supported, defaults to A4
+  margins:          # Page margins in mm, global defaults are applied if omitted
+    top: 10
+    bottom: 15
+    left: 5
+    right: 10
+```
+
+### Template Theme
+Depending on the template, the background and accent (or highlight) color can be adjusted to personalize the result:
+```yaml
+theme:
+  background: "#243E66"     # Background color if applicable to the template
+  accent: "#305285"         # Accent color (e.g. for headlines) if applicable to the theme
+```
+Values must be defined in HEX color code. Surround values with quotes in YAML, otherwise they will be parsed as comments and ignored. 
+
+### Name
+You can either define first and last name in separate fields, or combine them in one field if splitting first and last name is not common in your culture. Templates usually prefer `firstName` and `lastName` if present and otherwise fallback to the `name`. 
+```yaml
+personal:
+  name: Peter Parker
+  firstName: Peter
+  lastName: Parker
+  ...
+```
+
+### Photo
+You can optionally add a photo to your resume by providing either an absolute file path on your system:
+```yaml
+personal:
+  photo: /my/local/pictures/resume_photo.jpg
+```
+Alternatively you can supply a publicly accessible web URL:
+```yaml
+personal:
+  photo: https://example.com/resume_photo.png
+```
+
+## Sample
+
 A basic example could look like this (see [sample.yaml](sample/sample.yaml)):
 ```yaml
 version: 1.0.0
