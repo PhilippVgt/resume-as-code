@@ -34,7 +34,7 @@ The resume schema provides structured representations for the following details:
 
 Refer to `schema/resume.yaml` and `schema/resume.json` for all available attributes.
 
-A basic example could look like this:
+A basic example could look like this (see [sample.yaml](sample/sample.yaml)):
 ```yaml
 version: 1.0.0
 page:
@@ -99,3 +99,4 @@ languages:
     level: 0.2
 ```
 
+For the above example, the resulting PDF will look something like this: [sample.pdf](sample/sample.pdf)
