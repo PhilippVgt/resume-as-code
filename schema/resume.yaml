@@ -31,7 +31,6 @@ personal:
       website: ""
 work:
   - name: ""
-    description: ""
     address: ""
     website: ""
     role: ""
@@ -52,11 +51,11 @@ education:
     highlights: []
 projects:
   - name: ""
-    description: ""
     website: ""
     role: ""
     from: "2022-04-17"
     until: null
+    summary: ""
     highlights: []
     keywords: []
 publications:

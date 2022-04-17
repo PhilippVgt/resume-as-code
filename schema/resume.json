@@ -42,7 +42,6 @@
   "work": [
     {
       "name": "",
-      "description": "",
       "address": "",
       "website": "",
       "role": "",
@@ -69,11 +68,11 @@
   "projects": [
     {
       "name": "",
-      "description": "",
       "website": "",
       "role": "",
       "from": "2022-04-17",
       "until": null,
+      "summary": "",
       "highlights": null,
       "keywords": null
     }

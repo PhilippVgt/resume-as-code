@@ -91,15 +91,14 @@ func (p *Profile) WebsiteTitle() string {
 }
 
 type Work struct {
-	Name        string   `yaml:"name" json:"name" required:"true"`
-	Description string   `yaml:"description" json:"description"`
-	Address     string   `yaml:"address" json:"address"`
-	Website     string   `yaml:"website" json:"website"`
-	Role        string   `yaml:"role" json:"role" required:"true"`
-	From        *Date    `yaml:"from" json:"from" required:"true"`
-	Until       *Date    `yaml:"until" json:"until"`
-	Summary     string   `yaml:"summary" json:"summary"`
-	Highlights  []string `yaml:"highlights" json:"highlights" required:"true"`
+	Name       string   `yaml:"name" json:"name" required:"true"`
+	Address    string   `yaml:"address" json:"address"`
+	Website    string   `yaml:"website" json:"website"`
+	Role       string   `yaml:"role" json:"role" required:"true"`
+	From       *Date    `yaml:"from" json:"from" required:"true"`
+	Until      *Date    `yaml:"until" json:"until"`
+	Summary    string   `yaml:"summary" json:"summary"`
+	Highlights []string `yaml:"highlights" json:"highlights"`
 }
 
 type Education struct {
@@ -116,14 +115,14 @@ type Education struct {
 }
 
 type Project struct {
-	Name        string   `yaml:"name" json:"name" required:"true"`
-	Description string   `yaml:"description" json:"description"`
-	Website     string   `yaml:"website" json:"website"`
-	Role        string   `yaml:"role" json:"role" required:"true"`
-	From        *Date    `yaml:"from" json:"from"`
-	Until       *Date    `yaml:"until" json:"until"`
-	Highlights  []string `yaml:"highlights" json:"highlights"`
-	Keywords    []string `yaml:"keywords" json:"keywords"`
+	Name       string   `yaml:"name" json:"name" required:"true"`
+	Website    string   `yaml:"website" json:"website"`
+	Role       string   `yaml:"role" json:"role" required:"true"`
+	From       *Date    `yaml:"from" json:"from"`
+	Until      *Date    `yaml:"until" json:"until"`
+	Summary    string   `yaml:"summary" json:"summary"`
+	Highlights []string `yaml:"highlights" json:"highlights"`
+	Keywords   []string `yaml:"keywords" json:"keywords"`
 }
 
 type Certification struct {
@@ -153,7 +152,7 @@ type Skill struct {
 }
 
 func (l *Skill) Levels(num int) []bool {
-	return skillLevels(l.Level, num)
+	return skillLevels(l.Skill, l.Level, num)
 }
 
 type Language struct {
@@ -163,7 +162,7 @@ type Language struct {
 }
 
 func (l *Language) Levels(num int) []bool {
-	return skillLevels(l.Level, num)
+	return skillLevels(l.Language, l.Level, num)
 }
 
 type Interest struct {
@@ -176,7 +175,7 @@ func websiteUrl(website string) string {
 		website = "https://" + website
 	}
 
-	log.Infof("Using website URL %s", website)
+	log.Debugf("Using website URL %s", website)
 	return website
 }
 func websiteTitle(website string) string {
@@ -186,11 +185,11 @@ func websiteTitle(website string) string {
 		website = website[:len(website)-1]
 	}
 
-	log.Infof("Using website title %s", website)
+	log.Debugf("Using website title %s", website)
 	return website
 }
 
-func skillLevels(level float64, num int) []bool {
+func skillLevels(skill string, level float64, num int) []bool {
 	levels := make([]bool, num)
 
 	increment := 1.0 / float64(num)
@@ -198,5 +197,6 @@ func skillLevels(level float64, num int) []bool {
 		levels[i] = level > float64(i)*increment
 	}
 
+	log.Debugf("Computed skill levels for %s: %v", skill, levels)
 	return levels
 }

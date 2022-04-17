@@ -27,7 +27,7 @@
                 }
             {{ end }}
             {{ if .Theme.Accent }}
-                .main .personal .proficiency,
+                .main .personal .name,
                 .main .section .entry .dates {
                     color: {{.Theme.Accent}};
                 }
@@ -140,10 +140,10 @@
 
                 <div class="personal">
                     {{ if and (.Personal.FirstName) (.Personal.LastName) }}
-                        <h1><span class="proficiency">{{.Personal.FirstName}}</span>
+                        <h1><span class="name">{{.Personal.FirstName}}</span>
                             <span class="lastName">{{.Personal.LastName}}</span></h1>
                     {{ else }}
-                        <h1><span class="proficiency">{{.Personal.FullName}}</span></h1>
+                        <h1><span class="name">{{.Personal.FullName}}</span></h1>
                     {{ end }}
 
                     <h2>{{.Personal.Role}}</h2>
@@ -289,8 +289,8 @@
                                     </h3>
                                 {{ end }}
                                 <p>
-                                    {{ if .Description }}
-                                        {{.Description}}
+                                    {{ if .Summary }}
+                                        {{.Summary}}
                                     {{ end }}
                                     {{ if .Highlights }}
                                         <ul>

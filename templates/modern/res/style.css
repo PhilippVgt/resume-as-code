@@ -163,7 +163,7 @@ h1, h2, h3, p, ul, li {
 .main .personal h1 {
     font-size: 26pt;
 }
-.main .personal .proficiency {
+.main .personal .name {
     color: #305285;
     font-weight: 600;
     text-transform: uppercase;
