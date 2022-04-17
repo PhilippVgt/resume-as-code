@@ -35,7 +35,7 @@ The resume schema provides structured representations for the following details:
 Refer to `schema/resume.yaml` and `schema/resume.json` for all available attributes.
 
 A basic example could look like this:
-``` JSON
+```yaml
 version: 1.0.0
 page:
   size: A4
