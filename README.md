@@ -38,7 +38,7 @@ A basic example could look like this:
 ```yaml
 version: 1.0.0
 page:
-  size: A4
+  size: Letter # or A4
 personal:
   firstName: Peter
   lastName: Parker
@@ -50,7 +50,7 @@ personal:
     in faucibus orci luctus et ultrices posuere cubilia curae;
     Donec auctor sollicitudin metus, non placerat ex varius at.
   contact:
-    phone: (+49) 170 1234567
+    phone: (555) 555-1234
     email: peter.parker@example.com
     website: https://example.com
   address:
@@ -63,9 +63,26 @@ personal:
       user: peter.parker
       website: https://example.com/peter.parker
 work:
-  - ...
+  - name: Octavius Industries
+    address: New York City, USA
+    role: Research Assistant
+    website: https://www.example.com
+    from: 2008-04-01
+    until: 2012-08-31
+    summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum, risus quis tincidunt aliquam, mauris dui varius ipsum, quis tempus ligula leo gravida arcu.
+    highlights:
+      - Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      - Donec rutrum, risus quis tincidunt aliquam, mauris dui varius ipsum, quis tempus ligula leo gravida arcu.
 education:
-  - ...
+  - institution: Empire State University (ESU)
+    address: New York City, USA
+    website: https://www.example.com
+    field: Biochemistry 
+    degree: PhD
+    from: 2005-10-15
+    until: 2008-02-15
+    grade: GPA 4.0
+    summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum, risus quis tincidunt aliquam, mauris dui varius ipsum, quis tempus ligula leo gravida arcu.
 skillSets:
   - title: Physical Abilities
     skills:
