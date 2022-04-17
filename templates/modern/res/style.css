@@ -1,0 +1,234 @@
+body {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: Raleway, sans-serif;
+    font-weight: 400;
+
+    color: #606060;
+    font-size: 10pt;
+    text-align: justify;
+    word-wrap: normal;
+}
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+a:link {
+    color:inherit;
+    text-decoration: inherit;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+}
+
+.sidebar {
+    width:30%;
+    height:100vh;
+    background-color: #243e66;
+    color: white;
+}
+
+.sidebar .photo {
+    display:block;
+    width:90%;
+    border-radius: 50%;
+    border: 0.5mm solid white;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sidebar h1 {
+    font-size: 14pt;
+    font-weight: 600;
+    margin-bottom: 2mm;
+    text-transform: uppercase;
+    border-bottom: 0.1mm solid white;
+    padding-bottom: 1mm;
+    margin-top: 5mm;
+}
+.sidebar h1 ion-icon {
+    position: relative;
+    top: 0.5mm;
+    margin-right: 2mm;
+}
+
+.sidebar .contact {
+    margin: 2mm 0;
+    font-size: 10pt;
+    display: flex;
+    flex-direction: row;
+}
+.sidebar .contact.morespace {
+    margin: 3mm 0;
+}
+.sidebar .contact ion-icon {
+    float: left;
+    vertical-align: middle;
+    margin-right: 3mm;
+    flex-grow: 0;
+    flex-shrink: 0;
+    align-self: center;
+}
+.sidebar .contact .content {
+    flex-grow: 1;
+    min-width: 0;
+    line-break: anywhere;
+    margin-right: 3mm;
+}
+.sidebar .contact .content .title {
+    font-style: italic;
+    margin-left: 1mm;
+}
+
+.sidebar .skills {
+    margin: 2mm 0;
+    font-size: 10pt;
+    display: flex;
+    flex-direction: column;
+}
+.sidebar .skills .title {
+
+}
+.sidebar .skills .skill {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 1mm 0;
+}
+.sidebar .skills .skill .text {
+    flex-grow: 1;
+    min-width: 0;
+    font-style: italic;
+    font-size: 10pt;
+    margin-left: 2mm;
+}
+
+.sidebar .scale {
+    flex-grow: 0;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: row;
+}
+.sidebar .scale .bullet {
+    width: 2.5mm;
+    height: 2.5mm;
+    border-radius: 2.5mm;
+    border: 0.5mm solid white;
+    margin-left: 0.5mm;
+}
+.sidebar .scale .filled {
+    background-color: white;
+}
+
+.sidebar .language {
+    margin: 2mm 0;
+    font-size: 10pt;
+    display: flex;
+    flex-direction: column;
+}
+.sidebar .language .rating {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.sidebar .language .rating .text {
+    flex-grow: 1;
+    min-width: 0;
+}
+.sidebar .language .proficiency {
+    font-style: italic;
+    align-self: end;
+    font-size: 8pt;
+}
+
+
+.main {
+    width:70%;
+    height:100vh
+}
+
+h1, h2, h3, p, ul, li {
+    margin: 1mm 0 1mm 0;
+}
+
+.main .personal {
+    margin-bottom: 5mm;
+}
+
+.main .personal h1 {
+    font-size: 26pt;
+}
+.main .personal .proficiency {
+    color: #305285;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.main .personal .lastName {
+    color: #101010;
+    font-weight: 200;
+    text-transform: uppercase;
+}
+
+.main .personal h2 {
+    font-size: 12pt;
+    color: #606060;
+    font-weight: 200;
+    text-transform: uppercase;
+}
+
+.main .personal .description {
+    margin-top: 5mm;
+}
+
+
+.main .section {
+    margin-bottom: 5mm;
+}
+
+.main .section h1 {
+    font-size: 14pt;
+    font-weight: 600;
+    color: #305285;
+    margin-bottom: 2mm;
+    text-transform: uppercase;
+    border-bottom: 0.1mm solid #305285;
+    padding-bottom: 1mm;
+}
+.main .section h1 ion-icon {
+    position: relative;
+    top: 0.5mm;
+    margin-right: 2mm;
+}
+
+.main .section .entry {
+    margin-bottom: 3mm;
+    page-break-inside: avoid;
+}
+
+.main .section .entry h2 {
+    font-size: 12pt;
+    color: #101010;
+    font-weight: 600;
+}
+
+.main .section .entry h3 {
+    font-size: 10pt;
+    color: #101010;
+    font-weight: 400;
+    margin-bottom: 2mm;
+}
+
+.main .section .entry .dates {
+    float: right;
+    color: #305285;
+}
+
+.main .section .entry h2 .annotation {
+    color: #606060;
+    font-weight: 400;
+}

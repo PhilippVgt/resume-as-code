@@ -1,0 +1,314 @@
+<html lang="en-US">
+    <head>
+        <title>{{.Personal.FullName}} - Resume</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;600&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="res/style.css">
+
+        <style>
+            @page {
+                size: {{.Page.Size}};
+                margin: 0;
+            }
+
+            .sidebar {
+                padding: {{.Page.Margins.Top}}mm {{.Page.Margins.Left}}mm {{.Page.Margins.Bottom}}mm {{.Page.Margins.Left}}mm;
+            }
+            .main {
+                padding: {{.Page.Margins.Top}}mm {{.Page.Margins.Right}}mm {{.Page.Margins.Bottom}}mm {{.Page.Margins.Right}}mm;
+            }
+
+            {{ if .Theme.Background }}
+                .sidebar {
+                    background-color: {{.Theme.Background}};
+                }
+            {{ end }}
+            {{ if .Theme.Accent }}
+                .main .personal .proficiency,
+                .main .section .entry .dates {
+                    color: {{.Theme.Accent}};
+                }
+                .main .section h1 {
+                    color: {{.Theme.Accent}};
+                    border-bottom-color: {{.Theme.Accent}};
+                }
+            {{ end }}
+        </style>
+    </head>
+
+    <body>
+        <div class="content">
+
+            <div class="sidebar">
+                {{ if .Personal.Photo }}
+                    <img class="photo" src="{{.Personal.Photo}}" />
+                {{ end }}
+
+                <h1><ion-icon name="send-outline"></ion-icon> Contact</h1>
+
+                <div class="contact">
+                    <ion-icon name="call-outline"></ion-icon>
+                    <div class="content">
+                        {{.Personal.Contact.Phone}}
+                    </div>
+                </div>
+                <div class="contact">
+                    <ion-icon name="mail-open-outline"></ion-icon>
+                    <div class="content">
+                        {{.Personal.Contact.Email}}
+                    </div>
+                </div>
+
+                {{ if .Personal.Contact.Website }}
+                    <div class="contact">
+                        <ion-icon name="planet-outline"></ion-icon>
+                        <a class="content" href="{{.Personal.Contact.WebsiteUrl}}">
+                            {{.Personal.Contact.WebsiteTitle}}
+                        </a>
+                    </div>
+                {{ end }}
+
+                {{ with .Personal.Address }}
+                    <div class="contact morespace">
+                        <ion-icon name="home-outline"></ion-icon>
+                        <div class="content">
+                            {{.Street}}<br/>
+                            {{.PostalCode}} {{.City}}
+                            {{ with .Country }}<br/>{{.}}{{ end }}
+                        </div>
+                    </div>
+                {{ end }}
+
+                {{ range .Personal.Profiles }}
+                    <div class="contact">
+                        <ion-icon name="person-outline"></ion-icon>
+                        <a class="content" href="{{.WebsiteUrl}}">
+                            {{.User}} <span class="title">&#183; {{.Platform}}</span>
+                        </a>
+                    </div>
+                {{ end }}
+
+
+                {{ if .SkillSets }}
+                    <h1><ion-icon name="bulb-outline"></ion-icon> Skills</h1>
+
+                    {{ range .SkillSets }}
+                        <div class="skills">
+                            <div class="title">{{.Title}}</div>
+                            {{ range .Skills }}
+                                <div class="skill">
+                                    <div class="text">{{.Skill}}</div>
+                                    {{ if .Level }}
+                                        <div class="scale">
+                                            {{ range .Levels 5 }}
+                                                <div class="bullet {{ if . }}filled{{ end }}"></div>
+                                            {{ end }}
+                                        </div>
+                                    {{ end }}
+                                </div>
+                            {{ end }}
+                        </div>
+                    {{ end }}
+                {{ end }}
+
+                {{ if .Languages }}
+                    <h1><ion-icon name="language-outline"></ion-icon> Languages</h1>
+
+                    {{ range .Languages }}
+                    <div class="language">
+                        <div class="rating">
+                            <div class="text">{{.Language}}</div>
+                            {{ if .Level }}
+                                <div class="scale">
+                                    {{ range .Levels 5 }}
+                                        <div class="bullet {{ if . }}filled{{ end }}"></div>
+                                    {{ end }}
+                                </div>
+                            {{ end }}
+                        </div>
+                        <div class="proficiency">{{.Proficiency}}</div>
+                    </div>
+                    {{ end }}
+                {{ end }}
+
+            </div>
+
+            <div class="main">
+
+                <div class="personal">
+                    {{ if and (.Personal.FirstName) (.Personal.LastName) }}
+                        <h1><span class="proficiency">{{.Personal.FirstName}}</span>
+                            <span class="lastName">{{.Personal.LastName}}</span></h1>
+                    {{ else }}
+                        <h1><span class="proficiency">{{.Personal.FullName}}</span></h1>
+                    {{ end }}
+
+                    <h2>{{.Personal.Role}}</h2>
+
+                    {{ if .Personal.Summary }}
+                        <p class="description">{{.Personal.Summary}}</p>
+                    {{ end }}
+                </div>
+
+                {{ if .Work }}
+                    <div class="section">
+                        <h1><ion-icon name="briefcase-outline"></ion-icon> Experience</h1>
+                        {{ range .Work }}
+                            <div class="entry">
+                                <div class="dates">
+                                    {{ if .Until }}
+                                        {{ if (ne (.From.Format "2006") (.Until.Format "2006")) }}
+                                            {{.From.Format "Jan 2006"}} - {{.Until.Format "Jan 2006"}}
+                                        {{ else if (ne (.From.Format "Jan 2006") (.Until.Format "Jan 2006")) }}
+                                            {{.From.Format "Jan"}} - {{.Until.Format "Jan 2006"}}
+                                        {{ else }}
+                                            {{.From.Format "Jan 2006"}}
+                                        {{ end }}
+                                    {{ else }}
+                                        {{.From.Format "Jan 2006"}} - Today
+                                    {{ end }}
+                                </div>
+                                <h2>{{.Role}}</h2>
+                                <h3>
+                                    {{ if .Website }}
+                                        <a href="{{.Website}}">{{.Name}}</a>
+                                    {{ else }}
+                                        {{.Name}}
+                                    {{ end }}
+                                    {{ if .Address }}
+                                        &#183; {{.Address}}
+                                    {{ end }}
+                                </h3>
+                                <p>
+                                    {{ if .Summary }}
+                                        {{.Summary}}
+                                    {{ end }}
+                                    {{ if .Highlights }}
+                                        <ul>
+                                        {{ range .Highlights }}
+                                            <li>{{.}}</li>
+                                        {{ end }}
+                                        </ul>
+                                    {{ end }}
+                                </p>
+                            </div>
+                        {{ end }}
+                    </div>
+                {{ end }}
+
+                {{ if .Education }}
+                    <div class="section">
+                        <h1><ion-icon name="school-outline"></ion-icon> Education</h1>
+                        {{ range .Education }}
+                            <div class="entry">
+                                <div class="dates">
+                                    {{ if .Until }}
+                                        {{ if (ne (.From.Format "2006") (.Until.Format "2006")) }}
+                                            {{.From.Format "Jan 2006"}} - {{.Until.Format "Jan 2006"}}
+                                        {{ else if (ne (.From.Format "Jan 2006") (.Until.Format "Jan 2006")) }}
+                                            {{.From.Format "Jan"}} - {{.Until.Format "Jan 2006"}}
+                                        {{ else }}
+                                            {{.From.Format "Jan 2006"}}
+                                        {{ end }}
+                                    {{ else }}
+                                        {{.From.Format "Jan 2006"}} - Today
+                                    {{ end }}
+                                </div>
+                                <h2>
+                                    {{.Degree}} in {{.Field}}
+                                    {{ if .Grade }}
+                                        <span class="annotation">&#183; {{.Grade}}</span>
+                                    {{ end }}
+                                </h2>
+                                <h3>
+                                    {{ if .Website }}
+                                        <a href="{{.Website}}">{{.Institution}}</a>
+                                    {{ else }}
+                                        {{.Institution}}
+                                    {{ end }}
+                                    {{ if .Address }}
+                                        &#183; {{.Address}}
+                                    {{ end }}
+                                </h3>
+                                <p>
+                                    {{ if .Summary }}
+                                        {{.Summary}}
+                                    {{ end }}
+                                    {{ if .Highlights }}
+                                        <ul>
+                                            {{ range .Highlights }}
+                                                <li>{{.}}</li>
+                                            {{ end }}
+                                        </ul>
+                                    {{ end }}
+                                </p>
+                            </div>
+                        {{ end }}
+                    </div>
+                {{ end }}
+
+                {{ if .Projects }}
+                    <div class="section">
+                        <h1><ion-icon name="hammer-outline"></ion-icon> Projects</h1>
+                        {{ range .Projects }}
+                            <div class="entry">
+                                {{ if .From }}
+                                    <div class="dates">
+                                        {{ if .Until }}
+                                            {{ if (ne (.From.Format "2006") (.Until.Format "2006")) }}
+                                                {{.From.Format "Jan 2006"}} - {{.Until.Format "Jan 2006"}}
+                                            {{ else if (ne (.From.Format "Jan 2006") (.Until.Format "Jan 2006")) }}
+                                                {{.From.Format "Jan"}} - {{.Until.Format "Jan 2006"}}
+                                            {{ else }}
+                                                {{.From.Format "Jan 2006"}}
+                                            {{ end }}
+                                        {{ else }}
+                                            {{.From.Format "Jan 2006"}} - Today
+                                        {{ end }}
+                                    </div>
+                                {{ end }}
+                                <h2>
+                                    {{ if .Website }}
+                                        <a href="{{.Website}}">{{.Name}}</a>
+                                    {{ else }}
+                                        {{.Name}}
+                                    {{ end }}
+                                    {{ if .Role }}
+                                        <span class="annotation">&#183; {{.Role}}</span>
+                                    {{ end }}
+                                </h2>
+                                {{ if .Keywords }}
+                                    <h3>
+                                        {{ range $i, $a := .Keywords }}
+                                            {{ if (ge $i 1) }} &#183; {{ end }}
+                                            {{.}}
+                                        {{ end }}
+                                    </h3>
+                                {{ end }}
+                                <p>
+                                    {{ if .Description }}
+                                        {{.Description}}
+                                    {{ end }}
+                                    {{ if .Highlights }}
+                                        <ul>
+                                            {{ range .Highlights }}
+                                                <li>{{.}}</li>
+                                            {{ end }}
+                                        </ul>
+                                    {{ end }}
+                                </p>
+                            </div>
+                        {{ end }}
+                    </div>
+                {{ end }}
+
+            </div>
+
+            <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+            <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        </div>
+    </body>
+</html>
