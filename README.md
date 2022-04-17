@@ -42,7 +42,7 @@ page:
 personal:
   firstName: Peter
   lastName: Parker
-  role: Software Engineer
+  role: Biochemical Scientist
   summary: |
     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     Donec rutrum, risus quis tincidunt aliquam, mauris dui varius ipsum,
