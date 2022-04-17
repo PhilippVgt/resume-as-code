@@ -9,16 +9,22 @@ import (
 )
 
 func init() {
-	// set up logging
-	log.SetLevel(log.DebugLevel)
-	log.SetOutput(os.Stdout)
+	log.SetLevel(log.InfoLevel)
+	if os.Getenv("LOG_LEVEL") != "" {
+		if level, err := log.ParseLevel(os.Getenv("LOG_LEVEL")); err == nil {
+			log.SetLevel(level)
+		} else {
+			log.Warnf("Failed to parse log level from environment variable LOG_LEVEL, default to %s", log.GetLevel().String())
+		}
+	}
 
-	log.Warnf("\n\n")
-	log.Warnf("Resume-as-Code")
-	log.Warnf("==========================================")
+	log.SetOutput(os.Stdout)
 }
 
 func main() {
+	log.Warn("==========================================")
+	log.Warn("Resume-as-Code")
+	log.Warn("==========================================")
 
 	if len(os.Args) < 2 {
 		log.Fatal("usage: resume-as-code resume-file [template-name]")
@@ -48,7 +54,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	log.Warnf("==========================================")
-	log.Warnf("Done")
-	log.Warnf("\n\n")
+	log.Warn("==========================================")
+	log.Warn("Done")
+	log.Warn("==========================================\n\n")
 }
