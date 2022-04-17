@@ -51,7 +51,7 @@ a:link {
     padding-bottom: 1mm;
     margin-top: 5mm;
 }
-.sidebar h1 ion-icon {
+.sidebar h1 .icon {
     position: relative;
     top: 0.5mm;
     margin-right: 2mm;
@@ -66,7 +66,7 @@ a:link {
 .sidebar .contact.morespace {
     margin: 3mm 0;
 }
-.sidebar .contact ion-icon {
+.sidebar .contact .icon {
     float: left;
     vertical-align: middle;
     margin-right: 3mm;
@@ -199,7 +199,7 @@ h1, h2, h3, p, ul, li {
     border-bottom: 0.1mm solid #305285;
     padding-bottom: 1mm;
 }
-.main .section h1 ion-icon {
+.main .section h1 .icon {
     position: relative;
     top: 0.5mm;
     margin-right: 2mm;

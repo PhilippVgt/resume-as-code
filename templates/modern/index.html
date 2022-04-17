@@ -44,19 +44,19 @@
 
             <div class="sidebar">
                 {{ if .Personal.Photo }}
-                    <img class="photo" src="{{.Personal.Photo}}" />
+                    <img class="photo" src="{{.Personal.Photo}}" alt="Portrait Picture" />
                 {{ end }}
 
-                <h1><ion-icon name="send-outline"></ion-icon> Contact</h1>
+                <h1><ion-icon class="icon" name="send-outline"></ion-icon> Contact</h1>
 
                 <div class="contact">
-                    <ion-icon name="call-outline"></ion-icon>
+                    <ion-icon class="icon" name="call-outline"></ion-icon>
                     <div class="content">
                         {{.Personal.Contact.Phone}}
                     </div>
                 </div>
                 <div class="contact">
-                    <ion-icon name="mail-open-outline"></ion-icon>
+                    <ion-icon class="icon" name="mail-open-outline"></ion-icon>
                     <div class="content">
                         {{.Personal.Contact.Email}}
                     </div>
@@ -64,7 +64,7 @@
 
                 {{ if .Personal.Contact.Website }}
                     <div class="contact">
-                        <ion-icon name="planet-outline"></ion-icon>
+                        <ion-icon class="icon" name="planet-outline"></ion-icon>
                         <a class="content" href="{{.Personal.Contact.WebsiteUrl}}">
                             {{.Personal.Contact.WebsiteTitle}}
                         </a>
@@ -73,7 +73,7 @@
 
                 {{ with .Personal.Address }}
                     <div class="contact morespace">
-                        <ion-icon name="home-outline"></ion-icon>
+                        <ion-icon class="icon" name="home-outline"></ion-icon>
                         <div class="content">
                             {{.Street}}<br/>
                             {{.PostalCode}} {{.City}}
@@ -84,7 +84,7 @@
 
                 {{ range .Personal.Profiles }}
                     <div class="contact">
-                        <ion-icon name="person-outline"></ion-icon>
+                        <ion-icon class="icon" name="person-outline"></ion-icon>
                         <a class="content" href="{{.WebsiteUrl}}">
                             {{.User}} <span class="title">&#183; {{.Platform}}</span>
                         </a>
@@ -93,7 +93,7 @@
 
 
                 {{ if .SkillSets }}
-                    <h1><ion-icon name="bulb-outline"></ion-icon> Skills</h1>
+                    <h1><ion-icon class="icon" name="bulb-outline"></ion-icon> Skills</h1>
 
                     {{ range .SkillSets }}
                         <div class="skills">
@@ -115,7 +115,7 @@
                 {{ end }}
 
                 {{ if .Languages }}
-                    <h1><ion-icon name="language-outline"></ion-icon> Languages</h1>
+                    <h1><ion-icon class="icon" name="language-outline"></ion-icon> Languages</h1>
 
                     {{ range .Languages }}
                     <div class="language">
@@ -155,7 +155,7 @@
 
                 {{ if .Work }}
                     <div class="section">
-                        <h1><ion-icon name="briefcase-outline"></ion-icon> Experience</h1>
+                        <h1><ion-icon class="icon" name="briefcase-outline"></ion-icon> Experience</h1>
                         {{ range .Work }}
                             <div class="entry">
                                 <div class="dates">
@@ -201,7 +201,7 @@
 
                 {{ if .Education }}
                     <div class="section">
-                        <h1><ion-icon name="school-outline"></ion-icon> Education</h1>
+                        <h1><ion-icon class="icon" name="school-outline"></ion-icon> Education</h1>
                         {{ range .Education }}
                             <div class="entry">
                                 <div class="dates">
@@ -252,7 +252,7 @@
 
                 {{ if .Projects }}
                     <div class="section">
-                        <h1><ion-icon name="hammer-outline"></ion-icon> Projects</h1>
+                        <h1><ion-icon class="icon" name="hammer-outline"></ion-icon> Projects</h1>
                         {{ range .Projects }}
                             <div class="entry">
                                 {{ if .From }}

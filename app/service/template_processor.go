@@ -54,7 +54,9 @@ func FillTemplate(templatePath string, resume *model.Resume) (*http.ServeMux, er
 
 	mux.HandleFunc("/", func(res http.ResponseWriter, req *http.Request) {
 		res.Header().Set("Content-Type", "text/html")
-		io.WriteString(res, strings.TrimSpace(buf.String()))
+		if _, err := io.WriteString(res, strings.TrimSpace(buf.String())); err != nil {
+			log.Fatal("Failed to serve template from local test server: %v", err)
+		}
 		log.Debug("local test server served template html")
 	})
 
