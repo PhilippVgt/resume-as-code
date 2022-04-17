@@ -34,13 +34,15 @@ func FillTemplate(templatePath string, resume *model.Resume) (*http.ServeMux, er
 	localPhotoDir := ""
 	// If the user photo is a local file, we serve its directory and reference the local server instead
 	// If the photo is a URL, we leave it unchanged (chromedp will resolve it)
-	if isUrl(resume.Personal.Photo) {
-		log.Infof("using photo from URL: %s", resume.Personal.Photo)
-	} else {
-		log.Infof("using photo from local file: %s", resume.Personal.Photo)
-		localPhotoDir = filepath.Dir(resume.Personal.Photo)
-		resume.Personal.Photo = "/photo/" + filepath.Base(resume.Personal.Photo)
-		localPhoto = true
+	if resume.Personal.Photo != "" {
+		if isUrl(resume.Personal.Photo) {
+			log.Infof("using photo from URL: %s", resume.Personal.Photo)
+		} else {
+			log.Infof("using photo from local file: %s", resume.Personal.Photo)
+			localPhotoDir = filepath.Dir(resume.Personal.Photo)
+			resume.Personal.Photo = "/photo/" + filepath.Base(resume.Personal.Photo)
+			localPhoto = true
+		}
 	}
 
 	buf := new(bytes.Buffer)

@@ -78,7 +78,7 @@ func prepareDefaultResume() model.Resume {
 		Version: model.ResumeVersion,
 		Page: model.Page{
 			Size:    "A4",
-			Margins: model.PageMargins{Top: 15, Bottom: 20, Left: 10, Right: 10},
+			Margins: model.PageMargins{Top: 15, Bottom: 20, Left: 5, Right: 10},
 		},
 	}
 }
