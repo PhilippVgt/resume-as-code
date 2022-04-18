@@ -154,6 +154,21 @@ The default [modern](templates/modern) template is built with pure HTML and CSS 
 ### Contribute
 Feel free to contribute your own template! Follow any existing template to get started.
 
+**Folder structure:**
+Each template must be in a separate directory. The `index.html` contains the entire resume structure with all variables to be replaced.
+The `res` sub-folder is mounted as a file-server and all it's contents are accessible in the `index.html` via relative paths (e.g. `res/styles.css`). 
+```
+template_name
+|- index.html
+|- res
+   |- styles.css
+   |- scripts.js
+   |- images
+      |- icon.png
+      |- ...
+   |- ...
+```
+
 **Things to note:**
 - You can split stylesheets, scripts and html into individual files, but placeholder variables are only filled in the [index.html](templates/modern/index.html).
 - Additional files must be placed inside a sub-folder `res` inside the template directory.
