@@ -146,6 +146,15 @@ a:link {
     font-size: 8pt;
 }
 
+.sidebar .interest {
+    margin: 2mm 0;
+    font-size: 10pt;
+    text-align: left;
+}
+.sidebar .interest .keywords {
+    font-style: italic;
+}
+
 
 .main {
     width:70%;
@@ -193,6 +202,7 @@ h1, h2, h3, p, ul, li {
 .main .section h1 {
     font-size: 14pt;
     font-weight: 600;
+    text-align: left;
     color: #305285;
     margin-bottom: 2mm;
     text-transform: uppercase;
@@ -212,12 +222,14 @@ h1, h2, h3, p, ul, li {
 
 .main .section .entry h2 {
     font-size: 12pt;
+    text-align: left;
     color: #101010;
     font-weight: 600;
 }
 
 .main .section .entry h3 {
     font-size: 10pt;
+    text-align: left;
     color: #101010;
     font-weight: 400;
     margin-bottom: 2mm;
@@ -225,6 +237,7 @@ h1, h2, h3, p, ul, li {
 
 .main .section .entry .dates {
     float: right;
+    margin-left: 3mm;
     color: #305285;
 }
 

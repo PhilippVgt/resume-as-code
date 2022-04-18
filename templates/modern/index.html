@@ -47,7 +47,7 @@
                     <img class="photo" src="{{.Personal.Photo}}" alt="Portrait Picture" />
                 {{ end }}
 
-                <h1><ion-icon class="icon" name="send-outline"></ion-icon> Contact</h1>
+                <h1><ion-icon class="icon" name="send-outline"></ion-icon> Details</h1>
 
                 <div class="contact">
                     <ion-icon class="icon" name="call-outline"></ion-icon>
@@ -118,19 +118,29 @@
                     <h1><ion-icon class="icon" name="language-outline"></ion-icon> Languages</h1>
 
                     {{ range .Languages }}
-                    <div class="language">
-                        <div class="rating">
-                            <div class="text">{{.Language}}</div>
-                            {{ if .Level }}
-                                <div class="scale">
-                                    {{ range .Levels 5 }}
-                                        <div class="bullet {{ if . }}filled{{ end }}"></div>
-                                    {{ end }}
-                                </div>
-                            {{ end }}
+                        <div class="language">
+                            <div class="rating">
+                                <div class="text">{{.Language}}</div>
+                                {{ if .Level }}
+                                    <div class="scale">
+                                        {{ range .Levels 5 }}
+                                            <div class="bullet {{ if . }}filled{{ end }}"></div>
+                                        {{ end }}
+                                    </div>
+                                {{ end }}
+                            </div>
+                            <div class="proficiency">{{.Proficiency}}</div>
                         </div>
-                        <div class="proficiency">{{.Proficiency}}</div>
-                    </div>
+                    {{ end }}
+                {{ end }}
+
+                {{ if .Interests }}
+                    <h1><ion-icon class="icon" name="glasses-outline"></ion-icon> Interests</h1>
+
+                    {{ range .Interests }}
+                        <div class="interest">
+                            {{.Interest}}<span class="keywords">{{ range .Keywords }} &#183; {{.}}{{ end }}</span>
+                        </div>
                     {{ end }}
                 {{ end }}
 
@@ -298,6 +308,79 @@
                                                 <li>{{.}}</li>
                                             {{ end }}
                                         </ul>
+                                    {{ end }}
+                                </p>
+                            </div>
+                        {{ end }}
+                    </div>
+                {{ end }}
+
+                {{ if .Publications }}
+                    <div class="section">
+                        <h1><ion-icon class="icon" name="book-outline"></ion-icon> Publications</h1>
+                        {{ range .Publications }}
+                            <div class="entry">
+                                <div class="dates">{{.Date.Format "2 Jan 2006"}}</div>
+                                <h2>
+                                    {{ if .Website }}
+                                        <a href="{{.Website}}">{{.Publication}}</a>
+                                    {{ else }}
+                                        {{.Publication}}
+                                    {{ end }}
+                                    <span class="annotation">&#183; {{.Institution}}</span>
+                                </h2>
+                                <h3>{{ .Author }}</h3>
+                                <p>
+                                    {{ if .Description }}
+                                        {{.Description}}
+                                    {{ end }}
+                                </p>
+                            </div>
+                        {{ end }}
+                    </div>
+                {{ end }}
+
+                {{ if .Certificates }}
+                    <div class="section">
+                        <h1><ion-icon class="icon" name="ribbon-outline"></ion-icon> Certificates</h1>
+                        {{ range .Certificates }}
+                            <div class="entry">
+                                <div class="dates">{{.Date.Format "2 Jan 2006"}}</div>
+                                <h2>
+                                    {{ if .Website }}
+                                        <a href="{{.Website}}">{{.Certificate}}</a>
+                                    {{ else }}
+                                        {{.Certificate}}
+                                    {{ end }}
+                                    <span class="annotation">&#183; {{.Institution}}</span>
+                                </h2>
+                                <p>
+                                    {{ if .Description }}
+                                        {{.Description}}
+                                    {{ end }}
+                                </p>
+                            </div>
+                        {{ end }}
+                    </div>
+                {{ end }}
+
+                {{ if .Awards }}
+                    <div class="section">
+                        <h1><ion-icon class="icon" name="trophy-outline"></ion-icon> Awards</h1>
+                        {{ range .Certificates }}
+                            <div class="entry">
+                                <div class="dates">{{.Date.Format "2 Jan 2006"}}</div>
+                                <h2>
+                                    {{ if .Website }}
+                                        <a href="{{.Website}}">{{.Certificate}}</a>
+                                    {{ else }}
+                                        {{.Certificate}}
+                                    {{ end }}
+                                    <span class="annotation">&#183; {{.Institution}}</span>
+                                </h2>
+                                <p>
+                                    {{ if .Description }}
+                                        {{.Description}}
                                     {{ end }}
                                 </p>
                             </div>
