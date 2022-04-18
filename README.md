@@ -151,7 +151,7 @@ For the above example, the resulting PDF will look something like this: [sample.
 Existing templates can be found in the [templates](templates) folder. Any common web technology can be used in templates as long as Google Chrome browser can handle it.
 The default [modern](templates/modern) template is built with pure HTML and CSS and the javascript-based [Ionicons](https://ionic.io/ionicons) icon font.
 
-###Contribute
+### Contribute
 Feel free to contribute your own template! Follow any existing template to get started.
 
 **Things to note:**
