@@ -16,8 +16,8 @@ To use resume-as-code on your machine, do the following:
 3. Run the binary with 2 arguments: `./resume-as-code <Resume Definition in YAML or JSON> <Template directory>`
    - e.g. `./resume-as-code /path/to/my-resume.yaml templates/modern`
    - Both resume definition and template directory can be referenced by relative or absolute paths.
-   - If you run within the project directory, you can use the default template located at `templates/modern`.
-4. The resume PDF will be created next to the resume definition YAML or JSON
+   - If you run within the project directory, you can use the default template located at [templates/modern](templates/modern).
+4. The resume PDF will be created next to the resume definition YAML or JSON.
 
 # Schema
 The resume schema provides structured representations for the following details:
@@ -145,3 +145,15 @@ languages:
 ```
 
 For the above example, the resulting PDF will look something like this: [sample.pdf](sample/sample.pdf)
+
+
+# Templates
+Existing templates can be found in the [templates](templates) folder. Any common web technology can be used in templates as long as Google Chrome browser can handle it.
+The default [modern](templates/modern) template is built with pure HTML and CSS and the javascript-based [Ionicons](https://ionic.io/ionicons) icon font.
+
+###Contribute
+Feel free to contribute your own template! Follow any existing template to get started.
+
+**Things to note:**
+- You can split stylesheets, scripts and html into individual files, but placeholder variables are only filled in the [index.html](templates/modern/index.html).
+- Placeholders inside the template follow the variable names in the Resume structs. Check [resume.go](app/model/resume.go) if you are unsure of the supported data and the variable names. 
