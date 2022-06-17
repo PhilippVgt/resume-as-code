@@ -75,9 +75,13 @@
                     <div class="contact morespace">
                         <ion-icon class="icon" name="home-outline"></ion-icon>
                         <div class="content">
-                            {{.Street}}<br/>
-                            {{.PostalCode}} {{.City}}
-                            {{ with .Country }}<br/>{{.}}{{ end }}
+                            {{ with .Street }}{{.}}<br/>{{ end }}
+                            {{ if and (.PostalCode) (.Country) }}
+                                {{.PostalCode}} {{.City}}<br/>
+                                {{.Country}}
+                            {{ else }}
+                                {{.City}}{{ with .Country }}, {{.}}{{ end }}
+                            {{ end }}
                         </div>
                     </div>
                 {{ end }}

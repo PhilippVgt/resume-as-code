@@ -64,9 +64,9 @@ type Contact struct {
 	Website string `yaml:"website" json:"website"`
 }
 type Address struct {
-	Street     string `yaml:"street" json:"street" required:"true"`
+	Street     string `yaml:"street" json:"street"`
 	City       string `yaml:"city" json:"city" required:"true"`
-	PostalCode string `yaml:"postalCode" json:"postalCode" required:"true"`
+	PostalCode string `yaml:"postalCode" json:"postalCode"`
 	Country    string `yaml:"country" json:"country"`
 }
 
