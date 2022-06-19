@@ -43,8 +43,8 @@
         <div class="content">
 
             <div class="sidebar">
-                {{ if .Personal.Photo }}
-                    <img class="photo" src="{{.Personal.Photo}}" alt="Portrait Picture" />
+                {{ with .Personal.Photo }}
+                    <img class="photo" src="{{.}}" alt="Portrait Picture" />
                 {{ end }}
 
                 <h1><ion-icon class="icon" name="send-outline"></ion-icon> Details</h1>
@@ -232,7 +232,7 @@
                                     {{ end }}
                                 </div>
                                 <h2>
-                                    {{.Degree}} in {{.Field}}
+                                    {{ with .Degree }}{{.}} in {{ end }}{{.Field}}
                                     {{ if .Grade }}
                                         <span class="annotation">&#183; {{.Grade}}</span>
                                     {{ end }}

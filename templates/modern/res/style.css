@@ -7,7 +7,7 @@ body {
     font-weight: 400;
 
     color: #606060;
-    font-size: 10pt;
+    font-size: 9pt;
     text-align: justify;
     word-wrap: normal;
 }
@@ -40,10 +40,11 @@ a:link {
     border: 0.5mm solid white;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 5mm;
 }
 
 .sidebar h1 {
-    font-size: 14pt;
+    font-size: 13pt;
     font-weight: 600;
     margin-bottom: 2mm;
     text-transform: uppercase;
@@ -200,7 +201,7 @@ h1, h2, h3, p, ul, li {
 }
 
 .main .section h1 {
-    font-size: 14pt;
+    font-size: 13pt;
     font-weight: 600;
     text-align: left;
     color: #305285;
@@ -221,7 +222,7 @@ h1, h2, h3, p, ul, li {
 }
 
 .main .section .entry h2 {
-    font-size: 12pt;
+    font-size: 11pt;
     text-align: left;
     color: #101010;
     font-weight: 600;
@@ -232,11 +233,11 @@ h1, h2, h3, p, ul, li {
     text-align: left;
     color: #101010;
     font-weight: 400;
-    margin-bottom: 2mm;
 }
 
 .main .section .entry .dates {
     float: right;
+    font-size: 10pt;
     margin-left: 3mm;
     color: #305285;
 }

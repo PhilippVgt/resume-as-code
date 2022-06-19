@@ -105,7 +105,7 @@ type Education struct {
 	Institution string   `yaml:"institution" json:"institution" required:"true"`
 	Address     string   `yaml:"address" json:"address"`
 	Website     string   `yaml:"website" json:"website"`
-	Degree      string   `yaml:"degree" json:"degree" required:"true"`
+	Degree      string   `yaml:"degree" json:"degree"`
 	Field       string   `yaml:"field" json:"field" required:"true"`
 	From        *Date    `yaml:"from" json:"from" required:"true"`
 	Until       *Date    `yaml:"until" json:"until"`
