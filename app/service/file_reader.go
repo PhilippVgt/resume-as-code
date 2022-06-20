@@ -61,7 +61,7 @@ func validate(resume *model.Resume) error {
 		return errors.New("either 'personal.name' or both 'personal.firstName' and 'personal.lastName' must be set")
 	}
 
-	// Only A4 oder Letter as supported paper sizes
+	// Supported paper sizes are only A4 and Letter
 	if strings.ToUpper(resume.Page.Size) == "A4" {
 		resume.Page.Size = "A4"
 	} else if strings.ToLower(resume.Page.Size) == "letter" {
