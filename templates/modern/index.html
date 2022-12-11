@@ -88,7 +88,13 @@
 
                 {{ range .Personal.Profiles }}
                     <div class="contact">
-                        <ion-icon class="icon" name="person-outline"></ion-icon>
+                        {{ if eq .Platform "LinkedIn" }}
+                            <ion-icon class="icon" name="logo-linkedin"></ion-icon>
+                        {{ else if eq .Platform "GitHub" }}
+                            <ion-icon class="icon" name="logo-github"></ion-icon>
+                        {{ else }}
+                            <ion-icon class="icon" name="person-outline"></ion-icon>
+                        {{ end }}
                         <a class="content" href="{{.WebsiteUrl}}">
                             {{.User}} <span class="title">&#183; {{.Platform}}</span>
                         </a>
