@@ -1,6 +1,6 @@
 module github.com/PhilippVgt/resume-as-code
 
-go 1.17
+go 1.18
 
 require (
 	github.com/chromedp/cdproto v0.0.0-20220321060548-7bc2623472b3

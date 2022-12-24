@@ -1,0 +1,180 @@
+<html lang="en-US">
+    <head>
+        <title>{{.Personal.FullName}} - Cover Letter</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;600&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="res/style.css">
+        <link rel="stylesheet" href="res/cover_letter.css">
+
+        <style>
+            @page {
+                size: {{.Page.Size}};
+                margin: 0;
+            }
+
+            .main {
+                padding: {{.Page.Margins.Top}}mm {{mul .Page.Margins.Right 2}}mm {{mul .Page.Margins.Top 2}}mm {{mul .Page.Margins.Right 2}}mm;
+            }
+
+            .header .personal {
+                padding: {{mul .Page.Margins.Top 2}}mm 5mm {{.Page.Margins.Top}}mm {{mul .Page.Margins.Right 2}}mm;
+            }
+
+            .header .photo {
+                margin: 5mm {{mul .Page.Margins.Right 2}}mm 5mm 5mm;
+            }
+
+            {{ if .Theme.Background }}
+                .header {
+                    background-color: {{.Theme.Background}};
+                }
+
+                .bottom-line {
+                    background-color: {{.Theme.Background}};
+                }
+            {{ end }}
+            {{ if .Theme.Accent }}
+                .main .personal .name,
+                .main .section .entry .dates {
+                    color: {{.Theme.Accent}};
+                }
+                .main .section h1 {
+                    color: {{.Theme.Accent}};
+                    border-bottom-color: {{.Theme.Accent}};
+                }
+            {{ end }}
+        </style>
+    </head>
+
+    <body>
+        <div class="content">
+            <div class="bottom-line"></div>
+            
+            <div class="header">
+                <div class="personal">
+                    {{ if and (.Personal.FirstName) (.Personal.LastName) }}
+                        <h1><span class="name">{{.Personal.FirstName}}</span>
+                            <span class="lastName">{{.Personal.LastName}}</span></h1>
+                    {{ else }}
+                        <h1><span class="name">{{.Personal.FullName}}</span></h1>
+                    {{ end }}
+
+                    <h2>{{.Personal.Role}}</h2>
+                </div>
+
+                {{ with .Personal.Photo }}
+                    <img class="photo" src="{{.}}" alt="Portrait Picture" />
+                {{ end }}
+            </div>
+            
+            <div class="main">            
+                <div class="info">
+                    <div class="address">
+                        <div class="name">
+                            {{ .CoverLetter.Recipient.Name }}
+                            {{ with .CoverLetter.Recipient.Role }}
+                                <div class="role">{{.}}</div>
+                            {{ end }}
+                        </div>
+                        {{ with .CoverLetter.Address }}
+                            {{ .Street }}<br/>
+                            {{.PostalCode}} {{.City}}<br/>
+                            {{.Country}}
+                        {{ end }}
+                    </div>
+                    
+                    <div class="details">
+                        <div class="contact">
+                            <ion-icon class="icon" name="call-outline"></ion-icon>
+                            <div class="content">
+                                {{.Personal.Contact.Phone}}
+                            </div>
+                        </div>
+                        <div class="contact">
+                            <ion-icon class="icon" name="mail-open-outline"></ion-icon>
+                            <div class="content">
+                                {{.Personal.Contact.Email}}
+                            </div>
+                        </div>
+    
+                        {{ if .Personal.Contact.Website }}
+                            <div class="contact">
+                                <ion-icon class="icon" name="planet-outline"></ion-icon>
+                                <a class="content" href="{{.Personal.Contact.WebsiteUrl}}">
+                                    {{.Personal.Contact.WebsiteTitle}}
+                                </a>
+                            </div>
+                        {{ end }}
+    
+                        {{ with .Personal.Address }}
+                            <div class="contact morespace">
+                                <ion-icon class="icon" name="home-outline"></ion-icon>
+                                <div class="content">
+                                    {{ with .Street }}{{.}}<br/>{{ end }}
+                                    {{ if and (.PostalCode) (.Country) }}
+                                        {{.PostalCode}} {{.City}}<br/>
+                                        {{.Country}}
+                                    {{ else }}
+                                        {{.City}}{{ with .Country }}, {{.}}{{ end }}
+                                    {{ end }}
+                                </div>
+                            </div>
+                        {{ end }}
+    
+                        {{ range .Personal.Profiles }}
+                            <div class="contact">
+                                {{ if eq .Platform "LinkedIn" }}
+                                    <ion-icon class="icon" name="logo-linkedin"></ion-icon>
+                                {{ else if eq .Platform "GitHub" }}
+                                    <ion-icon class="icon" name="logo-github"></ion-icon>
+                                {{ else }}
+                                    <ion-icon class="icon" name="person-outline"></ion-icon>
+                                {{ end }}
+                                <a class="content" href="{{.WebsiteUrl}}">
+                                    {{.User}} <span class="title">&#183; {{.Platform}}</span>
+                                </a>
+                            </div>
+                        {{ end }}
+    
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h1><ion-icon class="icon" name="paper-plane-outline"></ion-icon>
+                        {{ if .CoverLetter.Title }}
+                            {{ .CoverLetter.Title }}
+                        {{ else }}
+                            Cover Letter
+                        {{ end }}
+                    </h1>
+                    <div class="entry">
+                        <div class="dates">
+                            {{ .Personal.Address.City }}, {{ .CoverLetter.Date.Format "02 January 2006" }}
+                        </div>
+                    </div>
+
+                    <div class="letter">
+                        <div class="salutation">
+                            {{ .CoverLetter.Letter.Salutation }},
+                        </div>
+                        {{ lines .CoverLetter.Letter.Body }}
+                        <div class="closing">
+                            {{ .CoverLetter.Letter.Closing }},
+                            {{ if .Personal.Signature }}
+                                <img class="signature" src="{{ .Personal.Signature }}" alt="{{ .Personal.Name }}" />
+                            {{ end }}
+                            <div class="name">{{ .Personal.Name }}</div>
+                        </div>
+                    </div>
+                </div>
+                    
+            </div>
+
+            <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+            <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        </div>
+    </body>
+</html>

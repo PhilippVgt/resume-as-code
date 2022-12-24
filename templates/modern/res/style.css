@@ -21,186 +21,15 @@ a:link {
     text-decoration: inherit;
 }
 
-.content {
-    display: flex;
-    flex-direction: row;
-}
-
-.sidebar {
-    width:30%;
-    height:100vh;
-    background-color: #243e66;
-    color: white;
-}
-
-.sidebar .photo {
-    display:block;
-    width:90%;
-    border-radius: 50%;
-    border: 0.5mm solid white;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 5mm;
-}
-
-.sidebar h1 {
-    font-size: 13pt;
-    font-weight: 600;
-    margin-bottom: 2mm;
-    text-transform: uppercase;
-    border-bottom: 0.1mm solid white;
-    padding-bottom: 1mm;
-    margin-top: 5mm;
-}
-.sidebar h1 .icon {
-    position: relative;
-    top: 0.5mm;
-    margin-right: 2mm;
-}
-
-.sidebar .contact {
-    margin: 2mm 0;
-    font-size: 10pt;
-    display: flex;
-    flex-direction: row;
-}
-.sidebar .contact.morespace {
-    margin: 3mm 0;
-}
-.sidebar .contact .icon {
-    float: left;
-    vertical-align: middle;
-    margin-right: 3mm;
-    flex-grow: 0;
-    flex-shrink: 0;
-    align-self: center;
-}
-.sidebar .contact .content {
-    flex-grow: 1;
-    min-width: 0;
-    line-break: anywhere;
-    margin-right: 3mm;
-}
-.sidebar .contact .content .title {
-    font-style: italic;
-    margin-left: 1mm;
-}
-
-.sidebar .skills {
-    margin: 2mm 0;
-    font-size: 10pt;
-    display: flex;
-    flex-direction: column;
-}
-.sidebar .skills .title {
-
-}
-.sidebar .skills .skill {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin: 1mm 0;
-}
-.sidebar .skills .skill .text {
-    flex-grow: 1;
-    min-width: 0;
-    font-style: italic;
-    font-size: 10pt;
-    margin-left: 2mm;
-}
-
-.sidebar .scale {
-    flex-grow: 0;
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: row;
-}
-.sidebar .scale .bullet {
-    width: 10px;
-    height: 10px;
-    border-radius: 10px;
-    border: 1px solid white;
-    margin-left: 2px;
-}
-.sidebar .scale .filled {
-    background-color: white;
-}
-
-.sidebar .language {
-    margin: 2mm 0;
-    font-size: 10pt;
-    display: flex;
-    flex-direction: column;
-}
-.sidebar .language .rating {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-.sidebar .language .rating .text {
-    flex-grow: 1;
-    min-width: 0;
-}
-.sidebar .language .proficiency {
-    font-style: italic;
-    align-self: end;
-    font-size: 8pt;
-}
-
-.sidebar .interest {
-    margin: 2mm 0;
-    font-size: 10pt;
-    text-align: left;
-}
-.sidebar .interest .keywords {
-    font-style: italic;
-}
-
-
-.main {
-    width:70%;
-    height:100vh
-}
-
 h1, h2, h3, p, ul, li {
     margin: 1mm 0 1mm 0;
 }
 
-.main .personal {
+.section {
     margin-bottom: 5mm;
 }
 
-.main .personal h1 {
-    font-size: 26pt;
-}
-.main .personal .name {
-    color: #305285;
-    font-weight: 600;
-    text-transform: uppercase;
-}
-.main .personal .lastName {
-    color: #101010;
-    font-weight: 200;
-    text-transform: uppercase;
-}
-
-.main .personal h2 {
-    font-size: 12pt;
-    color: #606060;
-    font-weight: 200;
-    text-transform: uppercase;
-}
-
-.main .personal .description {
-    margin-top: 5mm;
-}
-
-
-.main .section {
-    margin-bottom: 5mm;
-}
-
-.main .section h1 {
+.section h1 {
     font-size: 13pt;
     font-weight: 600;
     text-align: left;
@@ -210,39 +39,39 @@ h1, h2, h3, p, ul, li {
     border-bottom: 0.1mm solid #305285;
     padding-bottom: 1mm;
 }
-.main .section h1 .icon {
+.section h1 .icon {
     position: relative;
     top: 0.5mm;
     margin-right: 2mm;
 }
 
-.main .section .entry {
+.section .entry {
     margin-bottom: 3mm;
     page-break-inside: avoid;
 }
 
-.main .section .entry h2 {
+.section .entry h2 {
     font-size: 11pt;
     text-align: left;
     color: #101010;
     font-weight: 600;
 }
 
-.main .section .entry h3 {
+.section .entry h3 {
     font-size: 10pt;
     text-align: left;
     color: #101010;
     font-weight: 400;
 }
 
-.main .section .entry .dates {
+.section .entry .dates {
     float: right;
     font-size: 10pt;
     margin-left: 3mm;
     color: #305285;
 }
 
-.main .section .entry h2 .annotation {
+.section .entry h2 .annotation {
     color: #606060;
     font-weight: 400;
 }

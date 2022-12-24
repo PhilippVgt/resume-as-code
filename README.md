@@ -170,6 +170,6 @@ template_name
 ```
 
 **Things to note:**
-- You can split stylesheets, scripts and html into individual files, but placeholder variables are only filled in the [index.html](templates/modern/index.html).
+- You can split stylesheets, scripts and html into individual files, but placeholder variables are only filled in the [index.html](templates/modern/resume.html).
 - Additional files must be placed inside a sub-folder `res` inside the template directory.
 - Placeholders inside the template follow the variable names in the Resume structs. Check [resume.go](app/model/resume.go) if you are unsure of the supported data and the variable names. 

@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "2.0.0",
   "page": {
     "size": "",
     "margins": {
@@ -18,7 +18,6 @@
     "firstName": "",
     "lastName": "",
     "role": "",
-    "photo": "",
     "summary": "",
     "contact": {
       "phone": "",
@@ -37,96 +36,122 @@
         "user": "",
         "website": ""
       }
+    ],
+    "photo": "",
+    "signature": ""
+  },
+  "resume": {
+    "work": [
+      {
+        "name": "",
+        "address": "",
+        "website": "",
+        "role": "",
+        "from": "2022-12-24",
+        "until": null,
+        "summary": "",
+        "highlights": null
+      }
+    ],
+    "education": [
+      {
+        "institution": "",
+        "address": "",
+        "website": "",
+        "degree": "",
+        "field": "",
+        "from": "2022-12-24",
+        "until": null,
+        "grade": "",
+        "summary": "",
+        "highlights": null
+      }
+    ],
+    "projects": [
+      {
+        "name": "",
+        "website": "",
+        "role": "",
+        "from": "2022-12-24",
+        "until": null,
+        "summary": "",
+        "highlights": null,
+        "keywords": null
+      }
+    ],
+    "publications": [
+      {
+        "publication": "",
+        "institution": "",
+        "author": "",
+        "date": "2022-12-24",
+        "website": "",
+        "description": ""
+      }
+    ],
+    "awards": [
+      {
+        "certificate": "",
+        "institution": "",
+        "date": "2022-12-24",
+        "website": "",
+        "description": ""
+      }
+    ],
+    "certificates": [
+      {
+        "certificate": "",
+        "institution": "",
+        "date": "2022-12-24",
+        "website": "",
+        "description": ""
+      }
+    ],
+    "skillSets": [
+      {
+        "title": "",
+        "skills": [
+          {
+            "skill": "",
+            "level": 0
+          }
+        ]
+      }
+    ],
+    "languages": [
+      {
+        "language": "",
+        "proficiency": "",
+        "level": 0
+      }
+    ],
+    "interests": [
+      {
+        "interest": "",
+        "keywords": null
+      }
     ]
   },
-  "work": [
+  "coverLetters": [
     {
       "name": "",
-      "address": "",
-      "website": "",
-      "role": "",
-      "from": "2022-06-20",
-      "until": null,
-      "summary": "",
-      "highlights": null
-    }
-  ],
-  "education": [
-    {
-      "institution": "",
-      "address": "",
-      "website": "",
-      "degree": "",
-      "field": "",
-      "from": "2022-06-20",
-      "until": null,
-      "grade": "",
-      "summary": "",
-      "highlights": null
-    }
-  ],
-  "projects": [
-    {
-      "name": "",
-      "website": "",
-      "role": "",
-      "from": "2022-06-20",
-      "until": null,
-      "summary": "",
-      "highlights": null,
-      "keywords": null
-    }
-  ],
-  "publications": [
-    {
-      "publication": "",
-      "institution": "",
-      "author": "",
-      "date": "2022-06-20",
-      "website": "",
-      "description": ""
-    }
-  ],
-  "awards": [
-    {
-      "certificate": "",
-      "institution": "",
-      "date": "2022-06-20",
-      "website": "",
-      "description": ""
-    }
-  ],
-  "certificates": [
-    {
-      "certificate": "",
-      "institution": "",
-      "date": "2022-06-20",
-      "website": "",
-      "description": ""
-    }
-  ],
-  "skillSets": [
-    {
+      "date": "2022-12-24",
       "title": "",
-      "skills": [
-        {
-          "skill": "",
-          "level": 0
-        }
-      ]
-    }
-  ],
-  "languages": [
-    {
-      "language": "",
-      "proficiency": "",
-      "level": 0
-    }
-  ],
-  "interests": [
-    {
-      "interest": "",
-      "keywords": null
+      "recipient": {
+        "name": "",
+        "role": ""
+      },
+      "address": {
+        "street": "",
+        "city": "",
+        "postalCode": "",
+        "country": ""
+      },
+      "letter": {
+        "salutation": "",
+        "body": "",
+        "closing": ""
+      }
     }
   ]
 }

@@ -16,43 +16,46 @@ import (
 )
 
 const (
-	templateIndexFile      = "index.html"
+	TemplateResume         = "resume.html"
+	TemplateCoverLetter    = "cover_letter.html"
 	templateResourceFolder = "res"
 
 	BasicTemplatePath = "templates/basic"
 )
 
-func FillTemplate(templatePath string, resume *model.Resume) (*http.ServeMux, error) {
+func FillTemplate(templatePath string, templateFile string, definition any) (*http.ServeMux, error) {
 	log.Infof("using template from: %s", templatePath)
 
-	htmlTemplate, err := template.ParseFiles(path.Join(templatePath, templateIndexFile))
+	htmlTemplate, err := template.New(filepath.Base(templateFile)).
+		Funcs(template.FuncMap{"mul": Mul, "lines": Lines}).
+		ParseFiles(path.Join(templatePath, templateFile))
+
 	if err != nil {
 		return nil, fmt.Errorf("failed to parse template %s: %v", templatePath, err)
 	}
 
-	localPhoto := false
-	localPhotoDir := ""
-	// If the user photo is a local file, we serve its directory and reference the local server instead
-	// If the photo is a URL, we leave it unchanged (chromedp will resolve it)
-	if resume.Personal.Photo != "" {
-		if isUrl(resume.Personal.Photo) {
-			log.Infof("using photo from URL: %s", resume.Personal.Photo)
-		} else {
-			log.Infof("using photo from local file: %s", resume.Personal.Photo)
-			localPhotoDir = filepath.Dir(resume.Personal.Photo)
-			resume.Personal.Photo = "/photo/" + filepath.Base(resume.Personal.Photo)
-			localPhoto = true
-		}
+	var photo *string
+	var signature *string
+	switch definition.(type) {
+	case *model.Definition:
+		photo = &definition.(*model.Definition).Personal.Photo
+		signature = &definition.(*model.Definition).Personal.Signature
+	case *model.CoverLetterDefinition:
+		photo = &definition.(*model.CoverLetterDefinition).Personal.Photo
+		signature = &definition.(*model.CoverLetterDefinition).Personal.Signature
 	}
 
+	mux := http.NewServeMux()
+
+	servePicture(photo, mux, "photo")
+	servePicture(signature, mux, "signature")
+
 	buf := new(bytes.Buffer)
-	err = htmlTemplate.Execute(buf, resume)
+	err = htmlTemplate.Execute(buf, definition)
 	if err != nil {
 		return nil, fmt.Errorf("failed to fill template with resume: %v", err)
 	}
 	log.Infof("successfully prepared template: %s", templatePath)
-
-	mux := http.NewServeMux()
 
 	mux.HandleFunc("/", func(res http.ResponseWriter, req *http.Request) {
 		res.Header().Set("Content-Type", "text/html")
@@ -65,15 +68,36 @@ func FillTemplate(templatePath string, resume *model.Resume) (*http.ServeMux, er
 	templateFiles := http.FileServer(http.Dir(path.Join(templatePath, templateResourceFolder)))
 	mux.Handle("/res/", http.StripPrefix("/res", templateFiles))
 
-	if localPhoto {
-		photoFiles := http.FileServer(http.Dir(localPhotoDir))
-		mux.Handle("/photo/", http.StripPrefix("/photo", photoFiles))
-	}
-
 	return mux, nil
+}
+
+func servePicture(picture *string, mux *http.ServeMux, endpoint string) {
+	localPictureDir := ""
+	// If the user photo is a local file, we serve its directory and reference the local server instead
+	// If the photo is a URL, we leave it unchanged (chromedp will resolve it)
+	if *picture != "" {
+		if isUrl(*picture) {
+			log.Infof("using picture from URL: %s", *picture)
+		} else {
+			log.Infof("using picture from local file: %s", *picture)
+			localPictureDir = filepath.Dir(*picture)
+			*picture = "/" + endpoint + "/" + filepath.Base(*picture)
+
+			pictureFileServer := http.FileServer(http.Dir(localPictureDir))
+			mux.Handle("/"+endpoint+"/", http.StripPrefix("/"+endpoint, pictureFileServer))
+		}
+	}
 }
 
 func isUrl(str string) bool {
 	u, err := url.Parse(str)
 	return err == nil && u.Scheme != "" && u.Host != ""
+}
+
+func Mul(param1 float64, param2 float64) float64 {
+	return param1 * param2
+}
+
+func Lines(text string) template.HTML {
+	return template.HTML(strings.Replace(template.HTMLEscapeString(text), "\n", "<br>", -1))
 }

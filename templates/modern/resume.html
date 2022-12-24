@@ -7,6 +7,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;600&display=swap" rel="stylesheet">
 
         <link rel="stylesheet" href="res/style.css">
+        <link rel="stylesheet" href="res/resume.css">
 
         <style>
             @page {
@@ -28,10 +29,10 @@
             {{ end }}
             {{ if .Theme.Accent }}
                 .main .personal .name,
-                .main .section .entry .dates {
+                .section .entry .dates {
                     color: {{.Theme.Accent}};
                 }
-                .main .section h1 {
+                .section h1 {
                     color: {{.Theme.Accent}};
                     border-bottom-color: {{.Theme.Accent}};
                 }
@@ -102,10 +103,10 @@
                 {{ end }}
 
 
-                {{ if .SkillSets }}
+                {{ if .Resume.SkillSets }}
                     <h1><ion-icon class="icon" name="bulb-outline"></ion-icon> Skills</h1>
 
-                    {{ range .SkillSets }}
+                    {{ range .Resume.SkillSets }}
                         <div class="skills">
                             <div class="title">{{.Title}}</div>
                             {{ range .Skills }}
@@ -124,10 +125,10 @@
                     {{ end }}
                 {{ end }}
 
-                {{ if .Languages }}
+                {{ if .Resume.Languages }}
                     <h1><ion-icon class="icon" name="language-outline"></ion-icon> Languages</h1>
 
-                    {{ range .Languages }}
+                    {{ range .Resume.Languages }}
                         <div class="language">
                             <div class="rating">
                                 <div class="text">{{.Language}}</div>
@@ -144,10 +145,10 @@
                     {{ end }}
                 {{ end }}
 
-                {{ if .Interests }}
+                {{ if .Resume.Interests }}
                     <h1><ion-icon class="icon" name="glasses-outline"></ion-icon> Interests</h1>
 
-                    {{ range .Interests }}
+                    {{ range .Resume.Interests }}
                         <div class="interest">
                             {{.Interest}}<span class="keywords">{{ range .Keywords }} &#183; {{.}}{{ end }}</span>
                         </div>
@@ -173,10 +174,10 @@
                     {{ end }}
                 </div>
 
-                {{ if .Work }}
+                {{ if .Resume.Work }}
                     <div class="section">
                         <h1><ion-icon class="icon" name="briefcase-outline"></ion-icon> Experience</h1>
-                        {{ range .Work }}
+                        {{ range .Resume.Work }}
                             <div class="entry">
                                 <div class="dates">
                                     {{ if .Until }}
@@ -219,10 +220,10 @@
                     </div>
                 {{ end }}
 
-                {{ if .Education }}
+                {{ if .Resume.Education }}
                     <div class="section">
                         <h1><ion-icon class="icon" name="school-outline"></ion-icon> Education</h1>
-                        {{ range .Education }}
+                        {{ range .Resume.Education }}
                             <div class="entry">
                                 <div class="dates">
                                     {{ if .Until }}
@@ -270,10 +271,10 @@
                     </div>
                 {{ end }}
 
-                {{ if .Projects }}
+                {{ if .Resume.Projects }}
                     <div class="section">
                         <h1><ion-icon class="icon" name="hammer-outline"></ion-icon> Projects</h1>
-                        {{ range .Projects }}
+                        {{ range .Resume.Projects }}
                             <div class="entry">
                                 {{ if .From }}
                                     <div class="dates">
@@ -325,10 +326,10 @@
                     </div>
                 {{ end }}
 
-                {{ if .Publications }}
+                {{ if .Resume.Publications }}
                     <div class="section">
                         <h1><ion-icon class="icon" name="book-outline"></ion-icon> Publications</h1>
-                        {{ range .Publications }}
+                        {{ range .Resume.Publications }}
                             <div class="entry">
                                 <div class="dates">{{.Date.Format "2 Jan 2006"}}</div>
                                 <h2>
@@ -350,10 +351,10 @@
                     </div>
                 {{ end }}
 
-                {{ if .Certificates }}
+                {{ if .Resume.Certificates }}
                     <div class="section">
                         <h1><ion-icon class="icon" name="ribbon-outline"></ion-icon> Certificates</h1>
-                        {{ range .Certificates }}
+                        {{ range .Resume.Certificates }}
                             <div class="entry">
                                 <div class="dates">{{.Date.Format "2 Jan 2006"}}</div>
                                 <h2>
@@ -374,10 +375,10 @@
                     </div>
                 {{ end }}
 
-                {{ if .Awards }}
+                {{ if .Resume.Awards }}
                     <div class="section">
                         <h1><ion-icon class="icon" name="trophy-outline"></ion-icon> Awards</h1>
-                        {{ range .Certificates }}
+                        {{ range .Resume.Certificates }}
                             <div class="entry">
                                 <div class="dates">{{.Date.Format "2 Jan 2006"}}</div>
                                 <h2>

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/PhilippVgt/resume-as-code/app/model"
 	"github.com/PhilippVgt/resume-as-code/app/service"
 	log "github.com/sirupsen/logrus"
 	"os"
@@ -30,6 +31,8 @@ func main() {
 		log.Fatal("usage: resume-as-code resume-file [template-name]")
 	}
 	inputFile := os.Args[1]
+	inputDir := filepath.Dir(inputFile)
+	inputFileName := strings.TrimSuffix(filepath.Base(inputFile), filepath.Ext(inputFile))
 
 	var templatePath string
 	if len(os.Args) > 2 {
@@ -38,18 +41,32 @@ func main() {
 		templatePath = service.BasicTemplatePath
 	}
 
-	resume, err := service.ReadResumeFromFile(inputFile)
+	definition, err := service.ReadDefinitionFromFile(inputFile)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	template, err := service.FillTemplate(templatePath, resume)
+	for _, coverLetter := range definition.CoverLetters {
+		template, err := service.FillTemplate(templatePath, service.TemplateCoverLetter, &model.CoverLetterDefinition{
+			Definition:  definition,
+			CoverLetter: coverLetter,
+		})
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		err = service.GeneratePdf(template, inputDir, inputFileName+"_cover_letter_"+strings.ToLower(coverLetter.Name))
+		if err != nil {
+			log.Fatal(err)
+		}
+	}
+
+	template, err := service.FillTemplate(templatePath, service.TemplateResume, &definition)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	inputFileName := strings.TrimSuffix(filepath.Base(inputFile), filepath.Ext(inputFile))
-	err = service.GeneratePdf(template, filepath.Dir(inputFile), inputFileName)
+	err = service.GeneratePdf(template, inputDir, inputFileName+"_resume")
 	if err != nil {
 		log.Fatal(err)
 	}
