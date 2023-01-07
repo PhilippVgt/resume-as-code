@@ -99,5 +99,5 @@ func Mul(param1 float64, param2 float64) float64 {
 }
 
 func Lines(text string) template.HTML {
-	return template.HTML(strings.Replace(template.HTMLEscapeString(text), "\n", "<br>", -1))
+	return template.HTML(strings.Replace(template.HTMLEscapeString(text), "\n\n", "</p><p>", -1))
 }

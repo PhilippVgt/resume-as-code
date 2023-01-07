@@ -160,7 +160,7 @@
                         <div class="salutation">
                             {{ .CoverLetter.Letter.Salutation }},
                         </div>
-                        {{ lines .CoverLetter.Letter.Body }}
+                        <p>{{ lines .CoverLetter.Letter.Body }}</p>
                         <div class="closing">
                             {{ .CoverLetter.Letter.Closing }},
                             {{ if .Personal.Signature }}

@@ -36,7 +36,7 @@ resume:
       address: ""
       website: ""
       role: ""
-      from: "2022-12-24"
+      from: "2023-01-07"
       until: null
       summary: ""
       highlights: []
@@ -46,7 +46,7 @@ resume:
       website: ""
       degree: ""
       field: ""
-      from: "2022-12-24"
+      from: "2023-01-07"
       until: null
       grade: ""
       summary: ""
@@ -55,7 +55,7 @@ resume:
     - name: ""
       website: ""
       role: ""
-      from: "2022-12-24"
+      from: "2023-01-07"
       until: null
       summary: ""
       highlights: []
@@ -64,19 +64,19 @@ resume:
     - publication: ""
       institution: ""
       author: ""
-      date: "2022-12-24"
+      date: "2023-01-07"
       website: ""
       description: ""
   awards:
     - certificate: ""
       institution: ""
-      date: "2022-12-24"
+      date: "2023-01-07"
       website: ""
       description: ""
   certificates:
     - certificate: ""
       institution: ""
-      date: "2022-12-24"
+      date: "2023-01-07"
       website: ""
       description: ""
   skillSets:
@@ -93,7 +93,7 @@ resume:
       keywords: []
 coverLetters:
   - name: ""
-    date: "2022-12-24"
+    date: "2023-01-07"
     title: ""
     recipient:
       name: ""
