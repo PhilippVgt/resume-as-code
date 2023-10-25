@@ -1,4 +1,4 @@
-version: 1.0.0
+version: 2.0.0
 page:
   size: ""
   margins:
@@ -14,7 +14,6 @@ personal:
   firstName: ""
   lastName: ""
   role: ""
-  photo: ""
   summary: ""
   contact:
     phone: ""
@@ -29,63 +28,82 @@ personal:
     - platform: ""
       user: ""
       website: ""
-work:
+  photo: ""
+  signature: ""
+resume:
+  work:
+    - name: ""
+      address: ""
+      website: ""
+      role: ""
+      from: "2023-10-25"
+      until: null
+      summary: ""
+      highlights: []
+  education:
+    - institution: ""
+      address: ""
+      website: ""
+      degree: ""
+      field: ""
+      from: "2023-10-25"
+      until: null
+      grade: ""
+      summary: ""
+      highlights: []
+  projects:
+    - name: ""
+      website: ""
+      role: ""
+      from: "2023-10-25"
+      until: null
+      summary: ""
+      highlights: []
+      keywords: []
+  publications:
+    - publication: ""
+      institution: ""
+      author: ""
+      date: "2023-10-25"
+      website: ""
+      description: ""
+  awards:
+    - certificate: ""
+      institution: ""
+      date: "2023-10-25"
+      website: ""
+      description: ""
+  certificates:
+    - certificate: ""
+      institution: ""
+      date: "2023-10-25"
+      website: ""
+      description: ""
+  skillSets:
+    - title: ""
+      skills:
+        - skill: ""
+          level: 0
+  languages:
+    - language: ""
+      proficiency: ""
+      level: 0
+  interests:
+    - interest: ""
+      keywords: []
+coverLetters:
   - name: ""
-    address: ""
-    website: ""
-    role: ""
-    from: "2022-06-20"
-    until: null
-    summary: ""
-    highlights: []
-education:
-  - institution: ""
-    address: ""
-    website: ""
-    degree: ""
-    field: ""
-    from: "2022-06-20"
-    until: null
-    grade: ""
-    summary: ""
-    highlights: []
-projects:
-  - name: ""
-    website: ""
-    role: ""
-    from: "2022-06-20"
-    until: null
-    summary: ""
-    highlights: []
-    keywords: []
-publications:
-  - publication: ""
-    institution: ""
-    author: ""
-    date: "2022-06-20"
-    website: ""
-    description: ""
-awards:
-  - certificate: ""
-    institution: ""
-    date: "2022-06-20"
-    website: ""
-    description: ""
-certificates:
-  - certificate: ""
-    institution: ""
-    date: "2022-06-20"
-    website: ""
-    description: ""
-skillSets:
-  - title: ""
-    skills:
-      - skill: ""
-        level: 0
-languages:
-  - language: ""
-    proficiency: ""
-    level: 0
-interests:
-  - interest: ""
-    keywords: []
+    date: "2023-10-25"
+    title: ""
+    recipient:
+      name: ""
+      role: ""
+    address:
+      street: ""
+      city: ""
+      postalCode: ""
+      country: ""
+    letter:
+      salutation: ""
+      body: ""
+      closing: ""

@@ -13,35 +13,41 @@ import (
 )
 
 func main() {
-	resume := model.Resume{
+	resume := model.Definition{
 		Version: model.ResumeVersion,
 		Personal: model.Personal{
-			Profiles: make([]model.Profile, 1)},
-		Work: []model.Work{
-			{From: &model.Date{Time: time.Now()}},
+			Profiles: make([]model.Profile, 1),
 		},
-		Education: []model.Education{
-			{From: &model.Date{Time: time.Now()}},
-		},
-		Projects: []model.Project{
-			{From: &model.Date{Time: time.Now()}},
-		},
-		Publications: []model.Publication{
-			{Date: &model.Date{Time: time.Now()}},
-		},
-		Awards: []model.Certification{
-			{Date: &model.Date{Time: time.Now()}},
-		},
-		Certificates: []model.Certification{
-			{Date: &model.Date{Time: time.Now()}},
-		},
-		SkillSets: []model.SkillSet{
-			{
-				Skills: make([]model.Skill, 1),
+		Resume: model.Resume{
+			Work: []model.Work{
+				{From: &model.Date{Time: time.Now()}},
 			},
+			Education: []model.Education{
+				{From: &model.Date{Time: time.Now()}},
+			},
+			Projects: []model.Project{
+				{From: &model.Date{Time: time.Now()}},
+			},
+			Publications: []model.Publication{
+				{Date: &model.Date{Time: time.Now()}},
+			},
+			Awards: []model.Certification{
+				{Date: &model.Date{Time: time.Now()}},
+			},
+			Certificates: []model.Certification{
+				{Date: &model.Date{Time: time.Now()}},
+			},
+			SkillSets: []model.SkillSet{
+				{
+					Skills: make([]model.Skill, 1),
+				},
+			},
+			Languages: make([]model.Language, 1),
+			Interests: make([]model.Interest, 1),
 		},
-		Languages: make([]model.Language, 1),
-		Interests: make([]model.Interest, 1),
+		CoverLetters: []model.CoverLetter{
+			{Date: &model.Date{Time: time.Now()}},
+		},
 	}
 
 	var err error

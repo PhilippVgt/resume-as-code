@@ -1,6 +1,7 @@
-version: 1.0.0
+version: 2.0.0
 page:
   size: Letter # or A4
+
 personal:
   firstName: Peter
   lastName: Parker
@@ -24,38 +25,40 @@ personal:
     - platform: GitHub
       user: peter.parker
       website: https://example.com/peter.parker
-work:
-  - name: Octavius Industries
-    address: New York City, USA
-    role: Research Assistant
-    website: https://www.example.com
-    from: 2008-04-01
-    until: 2012-08-31
-    summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum, risus quis tincidunt aliquam, mauris dui varius ipsum, quis tempus ligula leo gravida arcu.
-    highlights:
-      - Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      - Donec rutrum, risus quis tincidunt aliquam, mauris dui varius ipsum, quis tempus ligula leo gravida arcu.
-education:
-  - institution: Empire State University (ESU)
-    address: New York City, USA
-    website: https://www.example.com
-    field: Biochemistry
-    degree: PhD
-    from: 2005-10-15
-    until: 2008-02-15
-    grade: GPA 4.0
-    summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum, risus quis tincidunt aliquam, mauris dui varius ipsum, quis tempus ligula leo gravida arcu.
-skillSets:
-  - title: Physical Abilities
-    skills:
-      - skill: Swinging
-        level: 0.9
-      - skill: Jumping
-        level: 0.7
-languages:
-  - language: English
-    proficiency: Native
-    level: 1.0
-  - language: Spanish
-    proficiency: Elementary Proficiency
-    level: 0.2
+
+resume:
+  work:
+    - name: Octavius Industries
+      address: New York City, USA
+      role: Research Assistant
+      website: https://www.example.com
+      from: 2008-04-01
+      until: 2012-08-31
+      summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum, risus quis tincidunt aliquam, mauris dui varius ipsum, quis tempus ligula leo gravida arcu.
+      highlights:
+        - Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        - Donec rutrum, risus quis tincidunt aliquam, mauris dui varius ipsum, quis tempus ligula leo gravida arcu.
+  education:
+    - institution: Empire State University (ESU)
+      address: New York City, USA
+      website: https://www.example.com
+      field: Biochemistry
+      degree: PhD
+      from: 2005-10-15
+      until: 2008-02-15
+      grade: GPA 4.0
+      summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum, risus quis tincidunt aliquam, mauris dui varius ipsum, quis tempus ligula leo gravida arcu.
+  skillSets:
+    - title: Physical Abilities
+      skills:
+        - skill: Swinging
+          level: 0.9
+        - skill: Jumping
+          level: 0.7
+  languages:
+    - language: English
+      proficiency: Native
+      level: 1.0
+    - language: Spanish
+      proficiency: Elementary Proficiency
+      level: 0.2

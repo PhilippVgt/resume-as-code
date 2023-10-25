@@ -1,0 +1,151 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    font-size: 10pt;
+}
+
+.bottom-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3mm;
+    background-color: #243e66;
+}
+
+.header {
+    width:100%;
+    height: 5cm;
+    background-color: #243e66;
+    color: white;
+    display: flex;
+    flex-direction: row;
+}
+
+.header .personal {
+    margin-bottom: 5mm;
+    flex-grow: 1;
+    flex-shrink: 0;
+}
+
+.header .personal h1 {
+    font-size: 26pt;
+}
+.header .personal .name {
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.header .personal .lastName {
+    color: white;
+    font-weight: 200;
+    text-transform: uppercase;
+}
+
+.header .personal h2 {
+    font-size: 12pt;
+    color: white;
+    font-weight: 200;
+    text-transform: uppercase;
+}
+
+.header .photo {
+    flex-grow: 0;
+    flex-shrink: 0;
+    display:block;
+    height:4cm;
+    width:4cm;
+    border-radius: 50%;
+    border: 0.5mm solid white;
+}
+
+.info {
+    width:100%;
+    min-height: 4cm;
+    display: flex;
+    flex-direction: row;
+}
+
+.info .address {
+    flex-grow: 1;
+    flex-shrink: 0;
+    font-size: 12pt;
+}
+.info .address .name {
+    font-size: 14pt;
+    margin-bottom: 2mm;
+}
+.info .address .name .role {
+    font-size: 12pt;
+    font-style: italic;
+}
+
+.info .details {
+    
+}
+
+.contact {
+    margin: 2mm 0;
+    font-size: 10pt;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+.contact .morespace {
+    margin: 3mm 0;
+}
+.contact .icon {
+    float: left;
+    vertical-align: middle;
+    margin-right: 3mm;
+    flex-grow: 0;
+    flex-shrink: 0;
+    align-self: center;
+}
+.contact .content {
+    flex-grow: 1;
+    flex-shrink: 0;
+    min-width: 0;
+    margin-right: 3mm;
+    display: flex;
+    flex-direction: row;
+}
+.contact .content .title {
+    font-style: italic;
+    margin-left: 1mm;
+}
+
+.section h1 {
+    text-transform: none;
+}
+
+.section .letter {
+    margin-top: 1cm;
+    display: flex;
+    flex-direction: column;
+}
+
+.section .letter .salutation {
+    font-size: 12pt;
+    margin-bottom: 5mm;
+}
+
+.section .letter .closing {
+    margin-top: 1cm;
+    margin-right: 2cm;
+    font-size: 12pt;
+    align-self: flex-end;
+}
+
+.section .letter .closing .signature {
+    display:block;
+    height:1cm;
+    width: auto;
+    margin-top: 2mm;
+}
+
+.section .letter .closing .name {
+    margin-top: 1mm;
+    font-style: italic;
+    font-size: 10pt;
+}

@@ -2,20 +2,9 @@ package model
 
 import (
 	log "github.com/sirupsen/logrus"
-	"strings"
-)
-
-const (
-	ResumeVersion = "1.0.0"
 )
 
 type Resume struct {
-	Version string `yaml:"version" json:"version" required:"true"`
-	Page    Page   `yaml:"page" json:"page"`
-	Theme   Theme  `yaml:"theme" json:"theme"`
-
-	Personal Personal `yaml:"personal" json:"personal" required:"true"`
-
 	Work      []Work      `yaml:"work" json:"work" required:"true"`
 	Education []Education `yaml:"education" json:"education" required:"true"`
 	Projects  []Project   `yaml:"projects" json:"projects"`
@@ -27,67 +16,6 @@ type Resume struct {
 	SkillSets []SkillSet `yaml:"skillSets" json:"skillSets"`
 	Languages []Language `yaml:"languages" json:"languages"`
 	Interests []Interest `yaml:"interests" json:"interests"`
-}
-
-type Page struct {
-	Size    string      `yaml:"size" json:"size"`       // either 'A4' oder 'Letter', defaults to 'A4'
-	Margins PageMargins `yaml:"margins" json:"margins"` // margins all in millimeters
-}
-type PageMargins struct {
-	Top    float64 `yaml:"top" json:"top"`
-	Bottom float64 `yaml:"bottom" json:"bottom"`
-	Left   float64 `yaml:"left" json:"left"`
-	Right  float64 `yaml:"right" json:"right"`
-}
-
-type Theme struct {
-	Background string `yaml:"background" json:"background"` // theme background color in hex code (used if applicable)
-	Accent     string `yaml:"accent" json:"accent"`         // theme accent color in hex code (used if applicable)
-}
-
-type Personal struct {
-	FullName  string `yaml:"name" json:"name"`
-	FirstName string `yaml:"firstName" json:"firstName"`
-	LastName  string `yaml:"lastName" json:"lastName"`
-
-	Role    string `yaml:"role" json:"role" required:"true"`
-	Photo   string `yaml:"photo" json:"photo"`
-	Summary string `yaml:"summary" json:"summary"`
-
-	Contact  Contact   `yaml:"contact" json:"contact" required:"true"`
-	Address  Address   `yaml:"address" json:"address" required:"true"`
-	Profiles []Profile `yaml:"profiles" json:"profiles"`
-}
-type Contact struct {
-	Phone   string `yaml:"phone" json:"phone" required:"true"`
-	Email   string `yaml:"email" json:"email" required:"true"`
-	Website string `yaml:"website" json:"website"`
-}
-type Address struct {
-	Street     string `yaml:"street" json:"street"`
-	City       string `yaml:"city" json:"city" required:"true"`
-	PostalCode string `yaml:"postalCode" json:"postalCode"`
-	Country    string `yaml:"country" json:"country"`
-}
-
-func (c *Contact) WebsiteUrl() string {
-	return websiteUrl(c.Website)
-}
-func (c *Contact) WebsiteTitle() string {
-	return websiteTitle(c.Website)
-}
-
-type Profile struct {
-	Platform string `yaml:"platform" json:"platform" required:"true"`
-	User     string `yaml:"user" json:"user" required:"true"`
-	Website  string `yaml:"website" json:"website" required:"true"`
-}
-
-func (p *Profile) WebsiteUrl() string {
-	return websiteUrl(p.Website)
-}
-func (p *Profile) WebsiteTitle() string {
-	return websiteTitle(p.Website)
 }
 
 type Work struct {
@@ -168,25 +96,6 @@ func (l *Language) Levels(num int) []bool {
 type Interest struct {
 	Interest string   `yaml:"interest" json:"interest" required:"true"`
 	Keywords []string `yaml:"keywords" json:"keywords"`
-}
-
-func websiteUrl(website string) string {
-	if !strings.HasPrefix(website, "https://") {
-		website = "https://" + website
-	}
-
-	log.Debugf("Using website URL %s", website)
-	return website
-}
-func websiteTitle(website string) string {
-	website = strings.TrimPrefix(website, "https://")
-	website = strings.TrimPrefix(website, "www.")
-	for strings.HasSuffix(website, "/") {
-		website = website[:len(website)-1]
-	}
-
-	log.Debugf("Using website title %s", website)
-	return website
 }
 
 func skillLevels(skill string, level float64, num int) []bool {
